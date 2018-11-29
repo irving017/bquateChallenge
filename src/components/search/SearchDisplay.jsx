@@ -1,5 +1,5 @@
 import React from 'react';
-import {TextField,Grid,Button} from '@material-ui/core'
+import {TextField,Grid,Button,Select} from '@material-ui/core'
 
 const SearchDisplay = (props) => {
     return (
@@ -13,19 +13,20 @@ const SearchDisplay = (props) => {
                         />
                     </Grid>
                     <Grid item>
-                        <TextField
-                        select
+                        <Select
+                        native
                         onChange={props.handleChange}
                         name="type"
-                        SelectProps={{
-                            native: true 
+                        inputProps={{
+                        name: 'type',
+                        id: 'age-native-simple',
                         }}
                         >
-                            <option value="" selected disabled hidden>Selecciona una categoría</option>
-                            <option value="artist">Artista</option>
-                            <option value="recording">Cancion</option>
-                            <option value="release">Album</option>
-                        </TextField>
+                        <option value="" />
+                        <option value="artist">Artista</option>
+                        <option value="recording">Cancion</option>
+                        <option value="release">Album</option>
+                        </Select>
                     </Grid>
                     <Grid item>
                         <Button variant="contained" type="submit">Buscar</Button>
